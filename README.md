@@ -1,6 +1,2 @@
-This example uses a simple maven based webapp project.
-
-For build use : mvn clean package
-
-Test
+Jenkins pipeline to deploy to and eks cluster.
 
