@@ -1,2 +1,2 @@
-Jenkins pipeline to deploy to an eks cluster.
+Jenkins pipeline to deploy to eks cluster.
 
