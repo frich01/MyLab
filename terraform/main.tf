@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "4.52.0"
+      version ">= 3.0"
     }
   }
 }
@@ -19,7 +19,7 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  version = "5.18.1"
+  version = ">= 5.46.0"
 
   name = "stw-vpc"
   cidr = "10.0.0.0/16"
