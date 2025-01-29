@@ -17,11 +17,11 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-module "vpc" {
+module "myapp-vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = ">= 5.18.1"
 
-  name = "stw-vpc"
+  name = "myapp-vpc"
   cidr = "10.0.0.0/16"
 
   azs             = data.aws_availability_zones.available.names
@@ -51,7 +51,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 19.0"
 
-  cluster_name    = "stw-cluster"
+  cluster_name    = "myapp-eks-cluster"
   cluster_version = "1.24"
 
   cluster_endpoint_public_access = true
@@ -86,9 +86,9 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    stw_node_wg = {
+    dev_node = {
       min_size     = 2
-      max_size     = 6
+      max_size     = 4
       desired_size = 2
     }
   }
